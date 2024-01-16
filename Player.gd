@@ -5,8 +5,25 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 var velocity = Vector2(0, 0)
+var viewDir = Vector2(0, 0)
 var points = 0
+var Bullet = preload("res://Bullet.tscn")
 export var speed = 10
+signal shoot(bullet, viewDir, location)
+
+func _input(event):
+	# Mouse in viewport coordinates.
+	if event is InputEventMouseMotion:
+		viewDir = (get_global_mouse_position() - self.position).normalized()
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.pressed:
+			emit_signal("shoot", Bullet, viewDir, self.position + (viewDir * 5))
+		# shoot.emit(Bullet, event.position)
+		# pass
+	
+   # Print the size of the viewport.
+   # print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)
+
 
 func get_input():
 	var input_direction = Vector2(0, 0)

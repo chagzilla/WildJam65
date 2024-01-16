@@ -11,9 +11,8 @@ func _ready():
 	connect("body_entered", self, "_on_area_entered")
 
 func _on_area_entered(area):
-	print(area.name)
 	if area.name == "Player":
-		area.points += 2
+		area.points += get_parent().radius / 10
 		get_parent().queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

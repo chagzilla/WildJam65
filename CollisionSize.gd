@@ -7,11 +7,9 @@ extends CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	print("Get the size of this circle")
-	self.get_shape().radius = 40.0
-	pass # Replace with function body.
-
+#func _ready():
+	# self.get_shape().radius = get_parent().get_parent().radius
+	# pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -1,22 +1,25 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://OverloadGuage.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://Circle.gd" type="Script" id=3]
-[ext_resource path="res://Collectable.gd" type="Script" id=4]
-[ext_resource path="res://CollisionSize.gd" type="Script" id=5]
+[ext_resource path="res://CoinSpawner.gd" type="Script" id=4]
+[ext_resource path="res://Level.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 5.22398
-
-[node name="Node2D" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 10000.0
-margin_bottom = 10000.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -5000.0
+margin_top = -5000.0
+margin_right = 5000.0
+margin_bottom = 5000.0
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( -1, 0 )
@@ -62,57 +65,8 @@ margin_right = 20.0
 margin_bottom = 20.0
 color = Color( 0.239216, 0.294118, 0.596078, 1 )
 
-[node name="Collectible" type="Node2D" parent="."]
+[node name="CoinSpawner" type="Node2D" parent="."]
 position = Vector2( 145, 77 )
-script = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Collectible"]
 script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible/Area2D"]
-shape = SubResource( 2 )
-script = ExtResource( 5 )
-
-[node name="Collectible2" type="Node2D" parent="."]
-position = Vector2( 261, -97 )
-script = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Collectible2"]
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible2/Area2D"]
-shape = SubResource( 2 )
-script = ExtResource( 5 )
-
-[node name="Collectible3" type="Node2D" parent="."]
-position = Vector2( 428, 117 )
-script = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Collectible3"]
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible3/Area2D"]
-shape = SubResource( 2 )
-script = ExtResource( 5 )
-
-[node name="Collectible4" type="Node2D" parent="."]
-position = Vector2( 97, -115 )
-script = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Collectible4"]
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible4/Area2D"]
-shape = SubResource( 2 )
-script = ExtResource( 5 )
-
-[node name="Collectible5" type="Node2D" parent="."]
-position = Vector2( 321, -9 )
-script = ExtResource( 3 )
-
-[node name="Area2D" type="Area2D" parent="Collectible5"]
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collectible5/Area2D"]
-shape = SubResource( 2 )
-script = ExtResource( 5 )
+[node name="Node2D" type="Node2D" parent="."]
